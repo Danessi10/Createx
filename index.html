@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Createx</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <div class="header__top">
+                <a href="#" class="header__logo logo">
+                    <img src="icons/logo.svg" alt="Createx">
+                </a>
+                <nav class="header__nav hidden-mobile">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item">
+                            <a href="#" class="header__nav-link">About Us</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a href="#" class="header__nav-link">Courses</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a href="#" class="header__nav-link">Events</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a href="#" class="header__nav-link">Blog</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a href="#" class="header__nav-link">Contacts</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="header__button button" type="button">
+                    Get consultation
+                </button>
+                <div class="header__log-menu hidden-mobile">
+                    <a class="header__log-link" href="#">Log in</a> /
+                    <a class="header__log-link" href="#">Register</a>
+                </div>
+                <button class="burger-button visible-mobile" type="button" onclick="mobileOverlay.showModal()">
+                    <span class="visually-hidden">Open navigation menu</span>
+                </button>
+            </div>
+            <div class="header__body">
+                <div class="header__content">
+                    <button class="header__video-button">
+                        <img src="icons/video-btn.svg" alt="video-button">
+                        <span>Play showreel</span>
+                    </button>
+                    <h1 class="header__header">Enjoy studying
+                        with Createx Online Courses
+                    </h1>
+                    <div class="header__buttons">
+                        <button class="header__aboutus-button button button--gradient" type="button"><span>About
+                                us</span></button>
+                        <button class="header__explore-button button" type="button">Explore courses</button>
+                    </div>
+                </div>
+                <img class="header__image hidden-mobile" src="images/header.svg" alt="Woman sitting at a computer">
+            </div>
+            <div class="header__bottom">
+                <ul class="header__statistics hidden-mobile">
+                    <li class="header__statistics-item">
+                        <span class="header__statistics-num">1200</span>
+                        Students graduated
+                    </li>
+                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="4" cy="4" r="4" fill="#FF3F3A" />
+                    </svg>
+                    <li class="header__statistics-item">
+                        <span class="header__statistics-num">84</span>
+                        Completed courses
+                    </li>
+                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="4" cy="4" r="4" fill="#FF3F3A" />
+                    </svg>
+                    <li class="header__statistics-item">
+                        <span class="header__statistics-num">16</span>
+                        Qualified tutors
+                    </li>
+                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="4" cy="4" r="4" fill="#FF3F3A" />
+                    </svg>
+                    <li class="header__statistics-item">
+                        <span class="header__statistics-num">5</span>
+                        Years of experience
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+    </main>
+    <dialog class="mobile-overlay visible-mobile" id="mobileOverlay">
+        <form class="mobile-overlay__close-button-wrapper" method="dialog">
+            <button class="mobile-overlay__close-button cross-button" type="submit">
+                <span class="visually-hidden">Close navigation menu</span>
+            </button>
+        </form>
+        <nav class="mobile-overlay__nav">
+            <ul class="mobile-overlay__list">
+                <li class="mobile-overlay__item">
+                    <a href="#" class="mobile-overlay__link">About Us</a>
+                </li>
+                <li class="mobile-overlay__item">
+                    <a href="#" class="mobile-overlay__link">Courses</a>
+                </li>
+                <li class="mobile-overlay__item">
+                    <a href="#" class="mobile-overlay__link">Events</a>
+                </li>
+                <li class="mobile-overlay__item">
+                    <a href="#" class="mobile-overlay__link">Blog</a>
+                </li>
+                <li class="mobile-overlay__item">
+                    <a href="#" class="mobile-overlay__link">Contacts</a>
+                </li>
+            </ul>
+            <button class="mobile-overlay__button button">Get consultation</button>
+        </nav>
+    </dialog>
+</body>
+
+</html>

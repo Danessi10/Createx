@@ -1,0 +1,535 @@
+@charset "UTF-8";
+*:not(dialog) {
+  padding: 0;
+  margin: 0;
+  border: 0; }
+
+*:not(dialog), *:not(dialog):before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+:focus, :active {
+  outline: none; }
+
+a:focus, a:active {
+  outline: none; }
+
+nav, footer, header, aside {
+  display: block; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+input, button, textarea {
+  font-family: inherit; }
+
+input::-ms-clear {
+  display: none; }
+
+button {
+  cursor: pointer;
+  background-color: transparent; }
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+a, a:visited {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+ul li {
+  list-style: none; }
+
+img {
+  vertical-align: top; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit; }
+
+a {
+  color: inherit; }
+
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+  padding-left: 0; }
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0; }
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0; }
+
+:where(dd[class]) {
+  margin-left: 0; }
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none; }
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+  list-style: none; }
+
+/**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0; }
+
+/**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom); }
+
+/**
+   Упрощаем работу с изображениями
+  */
+img {
+  display: block;
+  max-width: 100%; }
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+  font: inherit; }
+
+html {
+  /**
+   Пригодится в большинстве ситуаций
+   (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  height: 100%; }
+
+/**
+   Плавный скролл
+  */
+html,
+:has(:target) {
+  scroll-behavior: smooth; }
+
+body {
+  /**
+   Пригодится в большинстве ситуаций
+   (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  min-height: 100%;
+  /**
+   Унифицированный интерлиньяж
+  */
+  line-height: 1.5; }
+
+/**
+   Приводим к единому цвету svg-элементы
+  */
+svg *[fill] {
+  fill: currentColor; }
+
+svg *[stroke] {
+  stroke: currentColor; }
+
+/**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+svg * {
+  transition-property: fill, stroke; }
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Black.woff2") format("woff2"), url("../fonts/Lato-Black.woff") format("woff");
+  font-weight: 900;
+  font-display: swap; }
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Bold.woff2") format("woff2"), url("../fonts/Lato-Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap; }
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Regular.woff2") format("woff2"), url("../fonts/Lato-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap; }
+.container {
+  max-width: 1260px;
+  padding: 0 15px;
+  margin: 0 auto; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important; }
+
+@media (max-width: 1023px) {
+  .hidden-mobile {
+    display: none !important; } }
+
+@media (min-width: 1024px) {
+  .visible-mobile {
+    display: none !important; } }
+
+:root {
+  --white: #fff;
+  --primary: #ff3f3a;
+  --secondary: #ffcf2d;
+  --success: #03cea4;
+  --danger: #ff4242;
+  --warning: #f89828;
+  --info: #5a87fc;
+  --gray-900: #1e212c;
+  --gray-800: #424551;
+  --gray-700: #787a80;
+  --gray-600: #9a9ca5;
+  --gray-500: #b3b7bc;
+  --gray-400: #d7dadd;
+  --gray-300: #e5e8ed;
+  --gray-200: #f4f5f6;
+  --font-family: "Lato", sans-serif; }
+
+body {
+  overflow-x: hidden;
+  line-height: 160%;
+  font: 700 16px var(--font-family); }
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: .2s; }
+
+h1,
+h2,
+h3 {
+  font-weight: 900;
+  line-height: 130%;
+  color: var(--gray-900); }
+
+.button {
+  border-radius: 4px;
+  padding: 0px 40px;
+  height: 52px;
+  background: linear-gradient(45deg, #ff3f3a 0%, #f75e05 100%);
+  line-height: 325%;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--white); }
+  @media (hover: hover) {
+    .button:hover {
+      background: linear-gradient(45deg, #ff8100 0%, #ff6a00 100%); } }
+  @media (hover: none) {
+    .button:active {
+      background: linear-gradient(45deg, #ff8100 0%, #ff6a00 100%); } }
+  .button--gradient {
+    background-image: none;
+    border: 1px solid #ff3f3a; }
+    .button--gradient span {
+      background: linear-gradient(45deg, #ff3f3a 0%, #f75e05 100%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent; }
+    @media (hover: hover) {
+      .button--gradient:hover {
+        background-image: none;
+        scale: 1.01;
+        transition-duration: .1; } }
+    @media (hover: none) {
+      .button--gradient:active {
+        background-image: none;
+        scale: 1.01;
+        transition-duration: .1; } }
+
+.header {
+  height: 100vh;
+  background-image: linear-gradient(55.95deg, rgba(255, 63, 58, 0.2) 0%, rgba(247, 94, 5, 0.2) 100%); }
+  .header__inner {
+    max-height: 768px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block: 20px; }
+  .header__top {
+    display: flex;
+    align-items: center; }
+  .header__logo {
+    margin-right: 60px; }
+    @media (max-width: 1023px) {
+      .header__logo {
+        margin-right: auto; }
+        .header__logo img {
+          width: 140px; } }
+  .header__nav {
+    margin-right: auto; }
+    .header__nav-list {
+      display: flex;
+      align-items: center;
+      column-gap: 40px; }
+  .header__button {
+    padding: 0 30px; }
+    @media (max-width: 1023px) {
+      .header__button {
+        margin-right: 15px;
+        padding-inline: 20px; } }
+    @media (max-width: 424px) {
+      .header__button {
+        display: none; } }
+  .header__log-menu {
+    margin-left: 36px;
+    position: relative;
+    color: var(--gray-800);
+    padding-left: 28px; }
+    .header__log-menu::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      content: "";
+      display: inline-block;
+      width: 20px;
+      aspect-ratio: 1;
+      background: url(../icons/person.svg) no-repeat; }
+    @media (max-width: 1279px) {
+      .header__log-menu {
+        margin-left: 20px; } }
+  .header__nav-item a, .header__log-link {
+    position: relative;
+    color: var(--gray-800);
+    display: inline-flex;
+    height: 48px;
+    align-items: center; }
+    @media (hover: hover) {
+      .header__nav-item a:hover, .header__log-link:hover {
+        color: var(--primary); }
+        .header__nav-item a:hover::after, .header__log-link:hover::after {
+          width: 100%; } }
+    @media (hover: none) {
+      .header__nav-item a:active, .header__log-link:active {
+        color: var(--primary); }
+        .header__nav-item a:active::after, .header__log-link:active::after {
+          width: 100%; } }
+    .header__nav-item a::after, .header__log-link::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      translate: -50%;
+      width: 0;
+      height: 2px;
+      background-color: currentColor;
+      transition-duration: inherit; }
+
+.header__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  @media (max-width: 1023px) {
+    .header__body {
+      justify-content: center; } }
+.header__content {
+  display: flex;
+  flex-direction: column;
+  max-width: 496px; }
+.header__video-button {
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 16px;
+  font-size: 14px;
+  line-height: 150%;
+  color: var(--gray-900); }
+  .header__video-button img {
+    transition-duration: inherit;
+    border-radius: 100%; }
+  @media (max-width: 1023px) {
+    .header__video-button span {
+      font-size: 18px; } }
+  @media (hover: hover) {
+    .header__video-button:hover span, .header__video-button:hover img {
+      transition-duration: inherit; }
+    .header__video-button:hover img {
+      box-shadow: 0 0 0 16px rgba(255, 63, 58, 0.12); } }
+  @media (hover: none) {
+    .header__video-button:active span, .header__video-button:active img {
+      transition-duration: inherit; }
+    .header__video-button:active img {
+      box-shadow: 0 0 0 16px rgba(255, 63, 58, 0.12); } }
+.header__header {
+  font-weight: 900;
+  font-size: 64px;
+  letter-spacing: 0.02em;
+  margin-bottom: 60px; }
+  @media (max-width: 767px) {
+    .header__header {
+      text-align: center;
+      font-size: 54px; } }
+  @media (max-width: 424px) {
+    .header__header {
+      font-size: 40px; } }
+.header__buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+  flex-wrap: wrap;
+  row-gap: 20px; }
+  @media (max-width: 767px) {
+    .header__buttons {
+      justify-content: end; } }
+  @media (max-width: 424px) {
+    .header__buttons {
+      justify-content: center; } }
+.header__image {
+  max-width: 500px; }
+.header__bottom {
+  display: flex; }
+.header__statistics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: var(--gray-900);
+  font-weight: 400; }
+  .header__statistics svg circle {
+    fill: var(--primary); }
+  .header__statistics-item {
+    display: flex;
+    align-items: center; }
+    .header__statistics-item span {
+      font-weight: 900;
+      font-size: 46px;
+      line-height: 130%;
+      text-align: center;
+      margin-right: 12px; }
+
+.burger-button {
+  width: 48px;
+  height: 48px;
+  background-color: inherit; }
+  .burger-button::after {
+    content: "";
+    display: block;
+    width: 70%;
+    height: 3px;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 5px;
+    box-shadow: 0 -10px, 0 10px; }
+
+.mobile-overlay {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 20px 15px;
+  border: none; }
+  .mobile-overlay:modal {
+    max-width: 100%;
+    max-height: 100%; }
+  .mobile-overlay__close-button-wrapper {
+    display: flex;
+    justify-content: end; }
+  .mobile-overlay__list {
+    display: flex;
+    min-height: 70vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+    font-size: 18px; }
+  .mobile-overlay__link {
+    display: flex;
+    height: 45px;
+    align-items: center; }
+  .mobile-overlay__button {
+    display: none; }
+    @media (max-width: 424px) {
+      .mobile-overlay__button {
+        display: block;
+        margin: 0 auto; } }
+
+.cross-button {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background-color: transparent; }
+  .cross-button::before, .cross-button::after {
+    content: "";
+    position: absolute;
+    top: 52%;
+    left: 8px;
+    width: 70%;
+    height: 2px;
+    border-radius: 5px;
+    background-color: #000; }
+  .cross-button::before {
+    rotate: 45deg; }
+  .cross-button::after {
+    rotate: -45deg; }
+
+/*# sourceMappingURL=styles.css.map */

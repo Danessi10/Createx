@@ -1,0 +1,16 @@
+.burger-button {
+    width: 48px;
+    height: 48px;
+    background-color: inherit;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 70%;
+        height: 3px;
+        margin: 0 auto;
+        background-color: black;
+        border-radius: 5px;
+        box-shadow: 0 -10px, 0 10px;
+    }
+}

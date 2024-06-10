@@ -1,0 +1,31 @@
+.button {
+    border-radius: 4px;
+    padding: 0px 40px;
+    height: 52px;
+    background: linear-gradient(45deg, #ff3f3a 0%, #f75e05 100%);
+    line-height: 325%;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color: var(--white);
+
+    @include hover {
+        background: linear-gradient(45deg, #ff8100 0%, #ff6a00 100%);
+    }
+
+    &--gradient {
+        background-image: none;
+        border: 1px solid #ff3f3a;
+
+        & span {
+            background: linear-gradient(45deg, #ff3f3a 0%, #f75e05 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @include hover {
+            background-image: none;
+            scale: 1.01;
+            transition-duration: .1;
+        }
+    }
+}

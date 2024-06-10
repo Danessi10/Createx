@@ -1,0 +1,116 @@
+.header {
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include tablet {
+            justify-content: center;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        max-width: 496px;
+    }
+
+    &__video-button {
+        margin-bottom: 20px;
+        display: inline-flex;
+        align-items: center;
+        column-gap: 16px;
+        font-size: 14px;
+        line-height: 150%;
+        color: var(--gray-900);
+
+        & img {
+            transition-duration: inherit;
+            border-radius: 100%;
+        }
+
+        & span {
+            @include tablet {
+                font-size: 18px;
+            }
+        }
+
+        @include hover {
+
+            & span,
+            & img {
+                transition-duration: inherit;
+            }
+
+            & img {
+                box-shadow: 0 0 0 16px rgba(255, 63, 58, .12);
+            }
+        }
+    }
+
+    &__header {
+        font-weight: 900;
+        font-size: 64px;
+        letter-spacing: 0.02em;
+        margin-bottom: 60px;
+
+        @include mobile {
+            text-align: center;
+            font-size: 54px;
+        }
+
+        @include mini {
+            font-size: 40px;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        column-gap: 24px;
+        flex-wrap: wrap;
+        row-gap: 20px;
+
+        @include mobile {
+            justify-content: end;
+        }
+
+        @include mini {
+            justify-content: center;
+        }
+    }
+
+    &__image {
+        max-width: 500px;
+    }
+
+    &__bottom {
+        display: flex;
+    }
+
+    &__statistics {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        color: var(--gray-900);
+        font-weight: 400;
+
+        & svg circle {
+            fill: var(--primary);
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+
+            & span {
+                font-weight: 900;
+                font-size: 46px;
+                line-height: 130%;
+                text-align: center;
+                margin-right: 12px;
+            }
+        }
+    }
+}

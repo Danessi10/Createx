@@ -1,0 +1,21 @@
+body {
+    overflow-x: hidden;
+    line-height: 160%;
+    font: 700 16px var(--font-family);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+    transition-duration: .2s;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 900;
+    line-height: 130%;
+    color: var(--gray-900);
+}
